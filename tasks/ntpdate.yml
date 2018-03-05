@@ -1,0 +1,8 @@
+---
+- name: Stop ntp service
+  service: name={{ ntp_service_name }} state=stopped
+
+- name: Execute ntp date
+  shell: "ntpdate {{ ntpdate_option }} -t {{ ntpdate_timeout }} {{ ntp_config_server[0] }} || ntpdate {{ ntpdate_option }} -t {{ ntpdate_timeout }} {{ ntp_config_server[1] }} || echo 'ntpdate failed'"
+  ignore_errors: true
+  changed_when: false

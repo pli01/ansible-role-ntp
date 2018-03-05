@@ -1,0 +1,7 @@
+---
+- name: Install the required packages in Redhat derivatives
+  yum: name={{ item }} state={{ ntp_pkg_state }}
+  with_items:
+   - ntp
+   - ntpdate
+  tags: [ 'package', 'ntp' ]

@@ -1,0 +1,5 @@
+---
+ntp_service_name: ntp
+ntp_config_driftfile: /var/lib/ntp/ntp.drift
+ntp_config_disable: 'auth'
+ntp_config_broadcastclient: 'yes'
